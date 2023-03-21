@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">sum</string>
+
+    <string name="lat">Konum1</string>
+    <string name="name_surname">Adı Soyadı</string>
+    <string name="facultyName">Fakülte Adı</string>
+    <string name="long1">Konum2</string>
+    <string name="status">Durum</string>
+    <string name="save">Kaydet</string>
+    <string name="worker">Çalışan Girişi İçin Tıklayınız</string>
+    <string name="servant">Hizmetli Girişi İçin Tıklayınız</string>
+    <string name="servantlogin">Hizmetli Girişi</string>
+    <string name="workerlogin">Çalışan Girişi</string>
+    <string name="worker_save">Çalışan Kaydı</string>
+    <string name="servant_save">Hizmetli Kaydı</string>
+    <string name="forget_password">Şifremi Unuttum</string>
+    <string name="login">Giriş</string>
+    <string name="register">Kayıt Ol</string>
+    <string name="first_name">Adı</string>
+    <string name="last_name">Soyadı</string>
+    <string name="password">Şifre</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_mapdeneme">mapdeneme</string>
+    <string name="save_loc">Konumu Kaydet</string>
+    <string name="save_name">Adı</string>
+    <string name="save_surname">Soyadı</string>
+    <string name="save_number">Cep Telefonu</string>
+    <string name="save_mail">Mail</string>
+    <string name="mail">E-mail</string>
+    <string name="main_info">Daha Yeşil Bir Dünya İçin El Ele</string>
+    <string name="collected_paper">Kağıt</string>
+    <string name="collected_glass">Cam</string>
+    <string name="collected_plastic">Plastik</string>
+    <string name="show_map">Haritayı Görüntüle</string>
+    <string name="get_route">Rota Ayarla</string>
+    <string name="recycle_name">Geri Dönüşüm</string>
+    <string name="recycle_name2">Geri Dönüşüm Uygulaması</string>
+
+
+</resources>

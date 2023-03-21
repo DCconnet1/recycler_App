@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D2D7D7"
+    tools:context=".WorkerLogin">
+
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="450dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginBottom="20dp"
+                android:background="@android:drawable/dialog_holo_light_frame">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="143dp"
+        android:layout_marginStart="143dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/worker_email_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:srcCompat="@drawable/ryc" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/worker_email_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/black"
+        app:boxStrokeWidth="0dp"
+        app:boxBackgroundMode="outline"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="185dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/worker_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAutofill="no"
+            android:hint="@string/mail"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/worker_password_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+        app:boxStrokeWidth="0dp"
+        android:backgroundTint="#56000000"
+        android:layout_marginTop="16dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:boxBackgroundMode="outline"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/worker_email_input"
+        app:layout_constraintStart_toStartOf="@+id/worker_email_input"
+        app:layout_constraintTop_toBottomOf="@+id/worker_email_input"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/worker_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:hint="@string/password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/worker_forget_password_button"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#00000000"
+        app:layout_constraintStart_toStartOf="@+id/worker_password_input"
+        app:layout_constraintTop_toBottomOf="@+id/worker_password_input">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/custom_edittext_input"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forget_password"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/worker_login_button"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#00000000"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/worker_password_input"
+        app:layout_constraintStart_toEndOf="@+id/worker_forget_password_button"
+        app:layout_constraintTop_toTopOf="@+id/worker_forget_password_button">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/custom_edittext_input" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/worker_save"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#00000000"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/worker_password_input"
+        app:layout_constraintStart_toStartOf="@+id/worker_password_input"
+        app:layout_constraintTop_toBottomOf="@+id/worker_forget_password_button">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/custom_edittext_input" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/workerinfo"
+        android:layout_width="182dp"
+        android:layout_height="27dp"
+        android:text="@string/workerlogin"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
