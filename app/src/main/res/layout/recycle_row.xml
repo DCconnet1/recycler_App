@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/recyclerViewTextView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kağıt:"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        >
+
+    </TextView>
+    <TextView
+        android:id="@+id/recyclerViewTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cam:"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        >
+
+    </TextView>
+    <TextView
+        android:id="@+id/recyclerViewTextView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Plastik:"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        >
+
+    </TextView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/worker_forget_password_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center|end"
+        android:backgroundTint="#00000000"
+
+       >
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/status_button"/>
+
+
+    </androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/delete_bin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_bin"
+        android:layout_gravity="center|end"/>
+
+
+
+
+</LinearLayout>

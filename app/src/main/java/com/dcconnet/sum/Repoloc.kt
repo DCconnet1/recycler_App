@@ -23,7 +23,7 @@ class Repoloc {
 
     fun setCurrentLocation(loca: android.location.Location) {
 
-        val loca = hashMapOf(
+       /* val loca = hashMapOf(
             "lat" to loca.latitude,
             "lon" to loca.longitude,
             "name" to System.currentTimeMillis()
@@ -35,20 +35,24 @@ class Repoloc {
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)
-            }
+            }*/
 
 
 
 
 
 
-       /* FirebaseDatabase.getInstance().reference.child("locations")
+
+
+
+
+        FirebaseDatabase.getInstance().reference.child("locations")
             .child( " " + System.currentTimeMillis()).setValue(
             MyLocation(
                 lat = loca.latitude,
                 lon = loca.longitude
             )
-        )*/
+        )
     }
 
 
@@ -70,7 +74,6 @@ class Repoloc {
     fun loginUser(loca: Location, isLoginSuccessful: (Boolean, Boolean) -> Unit) {
         loca.name?.let { rLat -> databaseBook?.child(rLat) }?.get()?.addOnSuccessListener {
             if (it.hasChildren()) {
-                //datasnapshot bunu al bizim oluşturduğumuz data class'a maple
                 val lng = it.getValue(Location::class.java)?.longitude
                 val lat = it.getValue(Location::class.java)?.latitude
                 if (lat!!.equals(loca.latitude) && lng!!.equals(loca.longitude)) {

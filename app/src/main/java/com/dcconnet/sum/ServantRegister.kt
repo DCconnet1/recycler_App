@@ -19,7 +19,7 @@ class ServantRegister : AppCompatActivity() {
             val sPassword = binding.servantPassword.text.toString()
             val sMail = binding.servantMail.text.toString()
             val sNumber = binding.servantNumber.text.toString()
-            val user = User(sUsername, sPassword,sMail,sNumber)
+            val user = User(username = sUsername, password = sPassword, email = sMail, number = sNumber)
             checkIfUserExist(user)
 
         }

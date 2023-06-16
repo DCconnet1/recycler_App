@@ -4,14 +4,14 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 
-class AuthenticationRepository1() {
+class AuthenticationRepository1 {
 
     private val database = FirebaseDatabase.getInstance().reference
     private var databaseBook: DatabaseReference? = database.child("users")
 
 
     fun isUserAlreadyRegistered(user: User, isUserExist: (Boolean, Boolean) -> Unit) {
-        user.firstname?.let { databaseBook?.child(it) }?.get()?.addOnSuccessListener {
+        user.email?.let { databaseBook?.child(it) }?.get()?.addOnSuccessListener {
             if (!it.exists()) {
                 isUserExist(false, false)
             } else {
@@ -24,7 +24,8 @@ class AuthenticationRepository1() {
 
 
     fun createUser(user: User, onSuccessListener: (Boolean) -> Unit) {
-        user.firstname?.let { wFirstname -> databaseBook?.child(wFirstname.lowercase()) }?.setValue(user)?.addOnCompleteListener {
+        user.email?.let { wMail -> databaseBook?.child(wMail.lowercase()) }
+            ?.setValue(user)?.addOnCompleteListener {
             if (it.isSuccessful) {
                 onSuccessListener(true)
             } else {
@@ -35,8 +36,8 @@ class AuthenticationRepository1() {
 
 
     fun loginUser(user: User, isLoginSuccessful: (Boolean, Boolean) -> Unit) {
-        user.email?.let { wEmail -> databaseBook?.child(wEmail.lowercase()) }?.get()
-            ?.addOnSuccessListener {
+        user.email?.let { wEmail ->
+            databaseBook?.child(wEmail.lowercase())?.get()?.addOnSuccessListener {
                 if (it.hasChildren()) {
                     val firstname = it.getValue(User::class.java)?.firstname?.lowercase()
                     val lastname = it.getValue(User::class.java)?.lastname?.lowercase()
@@ -44,18 +45,20 @@ class AuthenticationRepository1() {
                     val email = it.getValue(User::class.java)?.email?.lowercase()
                     val number = it.getValue(User::class.java)?.number?.lowercase()
 
-
-                    if (email.equals(user.email) && password.equals(user.password))  {
+                    if (password.equals(user.password) && email.equals(user.email)) {
                         isLoginSuccessful(true, false)
                     } else {
                         isLoginSuccessful(false, false)
                     }
-                }else{
+                } else {
                     isLoginSuccessful(false, false)
                 }
             }?.addOnFailureListener {
                 isLoginSuccessful(false, true)
             }
+        }
     }
 }
+
+
 

@@ -12,20 +12,19 @@ class AuthenticationRepository() {
 
 
     fun isUserAlreadyRegistered(user: User, isUserExist: (Boolean, Boolean) -> Unit) {
-        user.firstname?.let { databaseBook?.child(it) }?.get()?.addOnSuccessListener {
-            if (!it.exists()) {
-                isUserExist(false, false)
-            } else {
+        user.email?.let { databaseBook?.child(it) }?.get()?.addOnSuccessListener {
+            if (it.exists()) {
                 isUserExist(true, false)
+            } else {
+                isUserExist(false, false)
             }
         }?.addOnFailureListener {
             isUserExist(false, true)
         }
     }
 
-    //Kullanıcı olusturma fonksiyonu, onSuccessListener(kullanıcı başarılı bir şekilde kayıt oldu mu)
     fun createUser(user: User, onSuccessListener: (Boolean) -> Unit) {
-        user.firstname?.let { sFirstname -> databaseBook?.child(sFirstname.lowercase()) }?.setValue(user)?.addOnCompleteListener {
+        user.email?.let { mEmail -> databaseBook?.child(mEmail.lowercase()) }?.setValue(user)?.addOnCompleteListener {
             if (it.isSuccessful) {
                 onSuccessListener(true)
             } else {
@@ -48,7 +47,6 @@ class AuthenticationRepository() {
 
 
 
-    //Kullanıcı girişini yapar isLoginSuccessful()
     fun loginUser(user: User, isLoginSuccessful: (Boolean, Boolean) -> Unit) {
         user.email?.let { sEmail -> databaseBook?.child(sEmail.lowercase()) }?.get()
             ?.addOnSuccessListener {

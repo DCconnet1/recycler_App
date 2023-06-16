@@ -34,19 +34,20 @@ class WorkerLogin : AppCompatActivity() {
 
     private fun loginUser(user: User) {
         repository.loginUser(user) { isLogin, isError ->
-            if (!isError){
+            if (!isError) {
                 if (isLogin) {
                     Toast.makeText(this, "Giriş başarılı", Toast.LENGTH_SHORT).show()
                     startWorkerProfile()
-                }else {
-                    Toast.makeText(this, "Kullanıcı adı veya şifre hatalı", Toast.LENGTH_SHORT)
-                        .show()
+                } else {
+                    Toast.makeText(this, "Kullanıcı adı veya şifre hatalı", Toast.LENGTH_SHORT).show()
                 }
-            }else {
+            } else {
                 Toast.makeText(this, "Bir hata meydana geldi", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
+
 
     private fun checkIfUserExist(user: User) {
         repository.isUserAlreadyRegistered(user){ isUserExist, isError ->
@@ -67,7 +68,7 @@ class WorkerLogin : AppCompatActivity() {
             if (it) {
                 Toast.makeText(this, "Hesap Başırı Bir Şekilde Oluşturuldu", Toast.LENGTH_SHORT)
                     .show()
-                startWorkerProfile()
+                startWorkerLogin()
 
             }else{
                 Toast.makeText(this, "Bir Hata Meydana Geldi", Toast.LENGTH_SHORT).show()
@@ -82,5 +83,10 @@ class WorkerLogin : AppCompatActivity() {
         val intent = Intent(this, WorkerRegister::class.java)
         startActivity(intent)
     }
+    private fun startWorkerLogin() {
+        val intent = Intent(this, WorkerLogin::class.java)
+        startActivity(intent)
+    }
+
 
 }

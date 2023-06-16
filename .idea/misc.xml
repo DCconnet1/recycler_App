@@ -3,23 +3,41 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/drawable/btn_background_1.xml" value="0.235" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/drawable/btn_background_2.xml" value="0.235" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/drawable/custom_edittext_input.xml" value="0.208" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/drawable/ic_launcher_background.xml" value="0.208" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/drawable/profile88.xml" value="0.235" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/drawable/shadow_input.xml" value="0.25" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/drawable/status_button.xml" value="0.2605" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/drawable/top_background.xml" value="0.2235" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout-v23/activity_servant_profile.xml" value="0.365625" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_bildirimler.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_kullanici_bilgileri.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_map.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_mapdeneme.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_maps.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_mesajlar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_message.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_message_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_notification_details.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_servant_login.xml" value="0.33" />
-        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_servant_profile.xml" value="0.5" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_servant_profile.xml" value="0.33" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_servant_register.xml" value="0.33" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_slogin_page.xml" value="0.3309659090909091" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_splash.xml" value="0.36935991605456453" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_trash_bins.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_worker_login.xml" value="0.33" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_worker_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_worker_register.xml" value="0.33" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/activity_yapilan_isler.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/current_place_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/item_image_with_text.xml" value="0.365625" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/message_row.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/notification_row.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/layout/recycle_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dcc/AndroidStudioProjects/sum/app/src/main/res/xml/actions.xml" value="0.36666666666666664" />
       </map>
     </option>

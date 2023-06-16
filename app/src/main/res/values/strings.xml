@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">sum</string>
 
-    <string name="lat">Konum1</string>
+    <string name="lat">Konum 1</string>
     <string name="name_surname">Adı Soyadı</string>
     <string name="facultyName">Fakülte Adı</string>
     <string name="long1">Konum2</string>
@@ -33,9 +33,13 @@
     <string name="collected_glass">Cam</string>
     <string name="collected_plastic">Plastik</string>
     <string name="show_map">Haritayı Görüntüle</string>
-    <string name="get_route">Rota Ayarla</string>
+    <string name="get_route">Göreve Başla</string>
+    <string name="get_work">Kutuları Göster</string>
     <string name="recycle_name">Geri Dönüşüm</string>
     <string name="recycle_name2">Geri Dönüşüm Uygulaması</string>
+    <string name="title_activity_direction">Direction</string>
+    <string name="add_bin">Atık Kutusu Ekle</string>
+    <string name="delete_bin">Kutuyu Sil</string>
 
 
 </resources>

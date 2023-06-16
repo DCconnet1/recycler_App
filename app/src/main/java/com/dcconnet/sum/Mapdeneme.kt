@@ -8,9 +8,11 @@ import android.location.*
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telecom.Call
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.android.volley.Response
 import com.dcconnet.sum.databinding.ActivityMapdenemeBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -19,9 +21,21 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
+import com.google.gson.annotations.SerializedName
+import com.google.maps.DirectionsApi
+import com.google.maps.GeoApiContext
+import com.google.maps.internal.PolylineEncoding
+import com.google.maps.model.DirectionsResult
+import okhttp3.ResponseBody
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.lang.Exception
 import java.net.URL
 import java.util.*
+import javax.security.auth.callback.Callback
+import kotlin.collections.ArrayList
+
 
 class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
 
@@ -36,17 +50,19 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
 
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = LocationChangeViewModel()
         binding = ActivityMapdenemeBinding.inflate(layoutInflater)
         val view =binding.root
+
         setContentView(view)
         setButtonListeners()
+        setRoute()
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
     }
 
 
@@ -58,12 +74,21 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
 
 
 
+
+
+
+
+
+
+
+
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         locationListener = object : LocationListener{
             override fun onLocationChanged(p0: Location) {
                 mMap.clear()
                 viewModel.setCurrentLocation(p0)
                 val currentLoc = LatLng(p0.latitude,p0.longitude)
+                var markerList = arrayListOf<Double>()
                 mMap.addMarker(MarkerOptions().position(currentLoc).title(currentLoc.latitude.toString()+" "+ currentLoc.longitude.toString()))
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLoc,15f))
                 val geocoder = Geocoder(this@Mapdeneme, Locale.getDefault())
@@ -94,12 +119,19 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
             if (lastloc != null){
                 val lastlocLatLng = LatLng(lastloc.latitude,lastloc.longitude)
                 mMap.addMarker(MarkerOptions().position(lastlocLatLng).title("En son bulunduğunuz konum"))
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastlocLatLng,15f))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastlocLatLng,5f))
             }
 
         }
 
+
+
+
+
+
+
     }
+
 
 
     override fun onRequestPermissionsResult(
@@ -156,6 +188,55 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
         binding.button.setOnClickListener {
             val myCurrentLocation = viewModel.currentLocation.value
             myCurrentLocation?.let { location -> checkIfUserExist(loca= location) }
+            Toast.makeText(this, "Konum kaydedilmiştir.", Toast.LENGTH_SHORT)
+                .show()
+
+        }
+    }
+
+    private fun setRoute(){
+        binding.button1.setOnClickListener {
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://maps.googleapis.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            val directionsService = retrofit.create(DirectionsService::class.java)
+
+            val origin = LatLng(41.0082, 28.9784)  // Başlangıç konumu
+            val destination = LatLng(39.9334, 32.8597)  // Hedef konumu
+
+            val request = directionsService.getDirections(
+                "driving",
+                "${origin.latitude},${origin.longitude}",
+                "${destination.latitude},${destination.longitude}",
+                "AIzaSyAB93QC17m-lfyB5KaYQVZWirGSSdcg6Og"
+            )
+           /* request.enqueue(object : Callback<DirectionResponse> {
+                override fun onResponse(call: Call<DirectionResponse>, response: Response<DirectionResponse>) {
+                    if (response.isSuccessful) {
+                        val directionResponse = response.body()
+                        if (directionResponse?.routes?.isNotEmpty() == true) {
+                            val route = directionResponse.routes[0]
+                            val polylineOptions = PolylineOptions()
+                            val points = route.overview_polyline?.points
+                            if (points != null) {
+                                val decodedPoints = PolyUtil.decode(points)
+                                polylineOptions.addAll(decodedPoints)
+                                polylineOptions.color(Color.RED)
+                                polylineOptions.width(5f)
+                                val polyline = mMap.addPolyline(polylineOptions)
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<DirectionResponse>, t: Throwable) {
+                    // Hata durumunda yapılacak işlemler
+                }
+            })*/
+
+
 
         }
     }
@@ -192,7 +273,17 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
     }
 }
 
-
+//val latLngList = mutableListOf<LatLng>()
+//        latLngList.add(LatLng(41.0082, 28.9784))  // İstanbul
+//        latLngList.add(LatLng(39.9334, 32.8597))  // Ankara
+//        latLngList.add(LatLng(37.9838, 23.7275))  // Atina
+//        latLngList.add(LatLng(48.8566, 2.3522))   // Paris
+//        latLngList.add(LatLng(51.5074, -0.1278))  // Londra
+//        val polylineOptions = PolylineOptions()
+//        polylineOptions.addAll(latLngList)
+//        polylineOptions.color(Color.RED)
+//        polylineOptions.width(5f)
+//        val polyline = mMap.addPolyline(polylineOptions)
 
 
 

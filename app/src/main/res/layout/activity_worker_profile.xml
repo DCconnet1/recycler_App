@@ -16,13 +16,37 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="#004a55"
+            android:orientation="vertical"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#004a55"
             android:orientation="vertical">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center|end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/mesaj8"
+                app:layout_constraintEnd_toEndOf="@+id/notification"
+                app:layout_constraintStart_toEndOf="@+id/notification"
+                app:layout_constraintTop_toTopOf="@+id/notification" />
+
+            <ImageView
+                android:id="@+id/notification"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center|top|end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/notif8" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="0dp"
                 android:foregroundGravity="center_horizontal"
                 app:cardCornerRadius="100dp">
 
@@ -37,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="@string/name_surname"
+                android:text="abc"
                 android:textColor="#fff"
                 android:textSize="23dp"
                 android:textStyle="bold" />

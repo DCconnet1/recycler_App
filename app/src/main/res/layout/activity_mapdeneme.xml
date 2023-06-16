@@ -29,14 +29,28 @@
         android:text="@string/save_loc"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="#BFBEBA"
         />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="62dp"
         android:text="@string/get_route"
-        android:layout_gravity="top|center"
+        android:layout_gravity="bottom|end"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="#BFBEBA"
+        android:padding="15dp"
+        />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:text="@string/add_bin"
+        android:layout_gravity="bottom|center|start"
+        android:layout_marginBottom="24dp"
+        android:padding="5dp"
+        android:backgroundTint="#BFBEBA"
         />
 
 

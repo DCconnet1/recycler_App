@@ -22,7 +22,7 @@ class WorkerRegister : AppCompatActivity() {
             val wPassword = binding.workerPassword.text.toString()
             val wMail = binding.workerMail.text.toString()
             val wNumber = binding.workerNumber.text.toString()
-            val user = User(wFirstname,wLastname, wPassword,wMail,wNumber,)
+            val user = User(firstname = wFirstname, lastname = wLastname, password =  wPassword, email = wMail,number =wNumber)
             checkIfUserExist(user)
 
         }

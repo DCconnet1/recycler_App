@@ -18,6 +18,38 @@
         android:theme="@style/Theme.Sum"
         tools:targetApi="31">
         <activity
+            android:name=".KullaniciBilgileri"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationDetails"
+            android:exported="false" />
+        <activity
+            android:name=".MessageDetails"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Message"
+            android:exported="false" />
+        <activity
+            android:name=".Bildirimler"
+            android:exported="false" />
+        <activity
+            android:name=".KullaniciAyarlari"
+            android:exported="false" />
+        <activity
+            android:name=".YapilanIsler"
+            android:exported="false" />
+        <activity
+            android:name=".TrashBins"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAB93QC17m-lfyB5KaYQVZWirGSSdcg6Og" />
+
+        <activity
             android:name=".ServantProfile"
             android:exported="false" />
         <activity
@@ -32,22 +64,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".SLoginPage"
-            android:exported="false" />
-        <!--
-             To get one, follow the directions here:
-
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyARsPi5TTxEcVKcaVuTRxX7rGVXZyhUuo0" />
-
         <activity
             android:name=".Mapdeneme"
             android:exported="false"

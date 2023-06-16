@@ -8,35 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:203391738276:android:c2c2c94fb58c82f1836131",
-        "android_client_info": {
-          "package_name": "com.dcconnet.loginsayfasi"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "203391738276-jnd2hqnb9msph97mf1v52v3lf5nksim1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCJa6q-2-VNKbY17EMH8FrqINdxGlWOn14"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "203391738276-jnd2hqnb9msph97mf1v52v3lf5nksim1.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:203391738276:android:02d406f83063fc10836131",
         "android_client_info": {
           "package_name": "com.dcconnet.sum"
