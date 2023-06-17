@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D2D7D7"
     tools:context=".WorkerRegister">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+
 
     <RelativeLayout
         android:id="@+id/linearLayout"
@@ -15,34 +24,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+    </RelativeLayout>
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="525dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="20dp"
-                android:background="@android:drawable/dialog_holo_light_frame">
-
-
-            </LinearLayout>
-
+            android:layout_width="350dp"
+            android:layout_height="700dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/dialog_holo_light_frame">
 
 
         </LinearLayout>
 
 
-    </RelativeLayout>
+
+    </LinearLayout>
+
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/worker_first_name_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="48dp"
         android:layout_marginTop="48dp"
         android:importantForAutofill="no"
@@ -57,9 +71,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/worker_first_name"
+            android:id="@+id/workerFirstName"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:hint="@string/first_name"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
@@ -70,9 +84,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/worker_last_name_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:importantForAutofill="no"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -86,8 +100,8 @@
 
         <EditText
             android:id="@+id/worker_last_name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
             android:hint="@string/last_name"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
@@ -98,8 +112,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/worker_password_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#56000000"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -107,6 +121,7 @@
         app:boxStrokeWidthFocused="0dp"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/black"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintEnd_toEndOf="@+id/worker_last_name_input"
         app:layout_constraintStart_toStartOf="@+id/worker_last_name_input"
         app:layout_constraintTop_toBottomOf="@+id/worker_last_name_input"
@@ -125,9 +140,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/worker_mail_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:importantForAutofill="no"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -150,12 +164,13 @@
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/worker_number_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:importantForAutofill="no"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -178,16 +193,128 @@
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/worker_age_input"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/black"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/worker_number_input"
+        app:layout_constraintStart_toStartOf="@+id/worker_number_input"
+        app:layout_constraintTop_toBottomOf="@+id/worker_number_input">
+
+        <EditText
+            android:id="@+id/worker_age"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/birth_day"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/worker_adress_input"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/black"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/worker_age_input"
+        app:layout_constraintStart_toStartOf="@+id/worker_age_input"
+        app:layout_constraintTop_toBottomOf="@+id/worker_age_input">
+
+        <EditText
+            android:id="@+id/worker_adress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/adres"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/worker_position_input"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/black"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/worker_adress_input"
+        app:layout_constraintStart_toStartOf="@+id/worker_adress_input"
+        app:layout_constraintTop_toBottomOf="@+id/worker_adress_input">
+
+        <EditText
+            android:id="@+id/workerUsername"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Kullanıcı Adı"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/worker_truck_no_input"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/black"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/worker_position_input"
+        app:layout_constraintStart_toStartOf="@+id/worker_position_input"
+        app:layout_constraintTop_toBottomOf="@+id/worker_position_input">
+
+        <EditText
+            android:id="@+id/workerTruckNo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/truck_no"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/worker_save"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#00000000"
-        app:layout_constraintEnd_toEndOf="@+id/worker_number_input"
-        app:layout_constraintStart_toStartOf="@+id/worker_number_input"
-        app:layout_constraintTop_toBottomOf="@+id/worker_number_input">
+        app:layout_constraintEnd_toEndOf="@+id/worker_truck_no_input"
+        app:layout_constraintStart_toStartOf="@+id/worker_truck_no_input"
+        app:layout_constraintTop_toBottomOf="@+id/worker_truck_no_input">
 
         <ImageView
             android:layout_width="match_parent"
@@ -203,18 +330,24 @@
             android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
+
     <TextView
         android:id="@+id/workerinfo"
         android:layout_width="182dp"
         android:layout_height="27dp"
         android:text="@string/worker_save"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/worker_first_name_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+        >
 
     </TextView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

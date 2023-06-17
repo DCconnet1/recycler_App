@@ -9,7 +9,7 @@ import com.dcconnet.sum.databinding.ActivityWorkerLoginBinding
 class WorkerLogin : AppCompatActivity() {
     private lateinit var binding: ActivityWorkerLoginBinding
 
-    private val repository: AuthenticationRepository1 by lazy { AuthenticationRepository1() }
+    private val repository: AuthenticationRepository by lazy { AuthenticationRepository() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -32,7 +32,7 @@ class WorkerLogin : AppCompatActivity() {
         binding.workerLoginButton.setOnClickListener {
             val wMail = binding.workerEmail.text.toString()
             val wPassword = binding.workerPassword.text.toString()
-            val user = User(wMail, wPassword)
+            val user = User(email = wMail, password = wPassword)
             loginUser(user)
         }
     }
@@ -84,7 +84,6 @@ class WorkerLogin : AppCompatActivity() {
     }
     private fun startWorkerProfile() {
         val intent = Intent(this, WorkerProfile::class.java)
-        finish()
         startActivity(intent)
     }
     private fun startWorkerRegister() {

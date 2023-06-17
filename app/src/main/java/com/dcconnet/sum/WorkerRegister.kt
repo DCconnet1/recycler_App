@@ -5,25 +5,30 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.dcconnet.sum.databinding.ActivityWorkerRegisterBinding
+import java.util.UUID
 
 
 class WorkerRegister : AppCompatActivity() {
     private lateinit var binding: ActivityWorkerRegisterBinding
 
-    private val repository: AuthenticationRepository1 by lazy { AuthenticationRepository1() }
+    private val repository: AuthenticationRepository by lazy { AuthenticationRepository() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWorkerRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.workerSave.setOnClickListener {
-            val wFirstname = binding.workerFirstName.text.toString()
-            val wLastname = binding.workerLastName.text.toString()
-            val wPassword = binding.workerPassword.text.toString()
-            val wMail = binding.workerMail.text.toString()
-            val wNumber = binding.workerNumber.text.toString()
-
-            val user = User(firstname = wFirstname, lastname = wLastname, password =  wPassword, email = wMail,number =wNumber)
+            val sFirstName = binding.workerFirstName.text.toString()
+            val sLastName = binding.workerLastName.text.toString()
+            val sPassword = binding.workerPassword.text.toString()
+            val sMail = binding.workerMail.text.toString()
+            val sNumber = binding.workerNumber.text.toString()
+            val sAge = binding.workerAge.text.toString().toInt()
+            val sAdres = binding.workerAdress.text.toString()
+            val sUserName = binding.workerUsername.text.toString()
+            val sTruckNo = binding.workerTruckNo.text.toString()
+            val uuid = UUID.randomUUID().toString()
+            val user = User(truckNo = sTruckNo, firstname = sFirstName, password = sPassword, email = sMail, number = sNumber, userUid = uuid, lastname = sLastName, age = sAge, address = sAdres, username = sUserName)
             checkIfUserExist(user)
 
         }

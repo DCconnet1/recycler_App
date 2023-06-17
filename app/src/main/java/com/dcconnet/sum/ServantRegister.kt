@@ -23,8 +23,9 @@ class ServantRegister : AppCompatActivity() {
             val sNumber = binding.servantNumber.text.toString()
             val sAge = binding.servantAge.text.toString().toInt()
             val sAdres = binding.servantAdress.text.toString()
+            val sUsername = binding.servantUserName.text.toString()
             val uuid = UUID.randomUUID().toString()
-            val user = User(username = sFirstName, password = sPassword, email = sMail, number = sNumber, userUid = uuid, lastname = sLastName, age = sAge, address = sAdres)
+            val user = User(firstname = sFirstName, password = sPassword, email = sMail, number = sNumber, userUid = uuid, lastname = sLastName, age = sAge, address = sAdres, username = sUsername)
             checkIfUserExist(user)
 
         }

@@ -41,8 +41,16 @@
     <string name="add_bin">Atık Kutusu Ekle</string>
     <string name="delete_bin">Kutuyu Sil</string>
     <string name="total_waste">Toplam Atık</string>
-    <string name="birth_day">Doğum Tarihi</string>
+    <string name="birth_day">Doğum Yılı</string>
     <string name="adres">Adres</string>
+    <string name="yapilan_isler">Yapılan İşler</string>
+    <string name="user_settings">Kullanıcı Ayarları</string>
+    <string name="user_info">Kullanıcı Bilgileri</string>
+    <string name="notification">Bildirimler</string>
+    <string name="messages">Mesajlar</string>
+    <string name="get_work1">İşe Başla</string>
+    <string name="position">Pozisyon</string>
+    <string name="truck_no">Plaka</string>
 
 
 </resources>

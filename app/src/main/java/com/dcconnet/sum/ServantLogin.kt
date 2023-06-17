@@ -90,6 +90,7 @@ class ServantLogin : AppCompatActivity() {
 
     private fun startServantProfile() {
         val intent = Intent(this, ServantProfile::class.java)
+
         startActivity(intent)
 
     }

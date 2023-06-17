@@ -41,12 +41,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.servant.setOnClickListener {
             val intent = Intent(this,ServantLogin::class.java)
-                startActivity(intent)
+            startActivity(intent)
 
         }
         binding.worker.setOnClickListener {
             val intent = Intent(this,WorkerLogin::class.java)
-                 startActivity(intent)
+            startActivity(intent)
 
         }
     }

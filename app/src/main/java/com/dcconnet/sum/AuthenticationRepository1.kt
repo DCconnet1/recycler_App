@@ -11,7 +11,7 @@ class AuthenticationRepository1 {
 
 
     fun isUserAlreadyRegistered(user: User, isUserExist: (Boolean, Boolean) -> Unit) {
-        user.email?.let { databaseBook?.child(it) }?.get()?.addOnSuccessListener {
+        user.firstname?.let { databaseBook?.child(it) }?.get()?.addOnSuccessListener {
             if (!it.exists()) {
                 isUserExist(false, false)
             } else {
@@ -24,7 +24,7 @@ class AuthenticationRepository1 {
 
 
     fun createUser(user: User, onSuccessListener: (Boolean) -> Unit) {
-        user.email?.let { wMail -> databaseBook?.child(wMail.lowercase()) }
+        user.firstname?.let { wMail -> databaseBook?.child(wMail.lowercase()) }
             ?.setValue(user)?.addOnCompleteListener {
             if (it.isSuccessful) {
                 onSuccessListener(true)

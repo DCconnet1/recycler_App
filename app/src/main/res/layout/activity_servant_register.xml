@@ -8,6 +8,7 @@
     tools:context=".ServantRegister">
 
 
+
     <RelativeLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -16,6 +17,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+    </RelativeLayout>
+
+
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,11 +45,11 @@
         </LinearLayout>
 
 
-    </RelativeLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/servant_first_name_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="48dp"
         android:layout_marginTop="48dp"
         android:importantForAutofill="no"
@@ -59,7 +66,7 @@
         <EditText
             android:id="@+id/servant_first_name"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:hint="@string/first_name"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
@@ -70,9 +77,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/servant_last_name_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:importantForAutofill="no"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -87,7 +94,7 @@
         <EditText
             android:id="@+id/servant_last_name"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:hint="@string/last_name"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
@@ -98,8 +105,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/servant_password_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#56000000"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -126,9 +133,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/servant_mail_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-
-        android:layout_marginTop="24dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:importantForAutofill="no"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -155,9 +161,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/servant_number_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:importantForAutofill="no"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -183,9 +189,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/servant_age_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:importantForAutofill="no"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -211,9 +217,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/servant_adress_input"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:importantForAutofill="no"
         android:textColorHint="@color/black"
         app:boxBackgroundMode="outline"
@@ -237,15 +243,43 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/servant_position_input"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:importantForAutofill="no"
+        android:textColorHint="@color/black"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/servant_adress_input"
+        app:layout_constraintStart_toStartOf="@+id/servant_adress_input"
+        app:layout_constraintTop_toBottomOf="@+id/servant_adress_input">
+
+        <EditText
+            android:id="@+id/servantUserName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Kullanıcı Adı"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/servant_save"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#00000000"
-        app:layout_constraintEnd_toEndOf="@+id/servant_adress_input"
-        app:layout_constraintStart_toStartOf="@+id/servant_adress_input"
-        app:layout_constraintTop_toBottomOf="@+id/servant_adress_input">
+        app:layout_constraintEnd_toEndOf="@+id/servant_position_input"
+        app:layout_constraintStart_toStartOf="@+id/servant_position_input"
+        app:layout_constraintTop_toBottomOf="@+id/servant_position_input">
 
         <ImageView
             android:layout_width="match_parent"
@@ -260,18 +294,23 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
+
+
     <TextView
         android:id="@+id/servantinfo"
         android:layout_width="182dp"
         android:layout_height="27dp"
+        android:layout_marginTop="10dp"
         android:text="@string/servant_save"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/servant_first_name_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+        android:textColor="@color/black"
+        android:textSize="18sp">
 
     </TextView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

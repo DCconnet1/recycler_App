@@ -23,6 +23,7 @@ class KullaniciBilgileri : AppCompatActivity() {
         binding = ActivityKullaniciBilgileriBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         val localMail = SharedPrefUtil.getInstance(this).getString(SharedPrefUtil.USER_EMAIL, "")
 
         val dataListener1 = object : ValueEventListener {
@@ -53,14 +54,16 @@ class KullaniciBilgileri : AppCompatActivity() {
 
     private fun setUi(user: User) {
         binding.userNameSurname.text = user.firstname + " " + user.lastname
-        binding.paperWeight.text = user.paperWeight
-        binding.plasticWeight.text = user.plasticWeight
-        binding.glassWeight.text = user.glassWeight
+        binding.userNameSurname1.text = user.username
+        binding.age.text = (2023 - user.age).toString()
         binding.totalWeight.text = user.totalWaste + " kg"
         binding.workerMailInput.text = user.email
         binding.workerNumberInput.text = user.number
         binding.workerLocation.text = user.address
-        binding.workerTruckNo.text = user.truckNo
+
+
+
+
     }
 }
 
