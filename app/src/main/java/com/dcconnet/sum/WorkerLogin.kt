@@ -17,6 +17,11 @@ class WorkerLogin : AppCompatActivity() {
         binding = ActivityWorkerLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setButtonListeners()
+        val isUserLoggedIn: Boolean =
+            SharedPrefUtil.getInstance(this).getString(SharedPrefUtil.USER_EMAIL, "") != ""
+        if (isUserLoggedIn) {
+            startWorkerProfile()
+        }
     }
     private fun setButtonListeners() {
         binding.workerSave.setOnClickListener{
@@ -37,6 +42,8 @@ class WorkerLogin : AppCompatActivity() {
             if (!isError) {
                 if (isLogin) {
                     Toast.makeText(this, "Giriş başarılı", Toast.LENGTH_SHORT).show()
+                    SharedPrefUtil.getInstance(this)
+                        .saveString(SharedPrefUtil.USER_EMAIL, user.email.orEmpty())
                     startWorkerProfile()
                 } else {
                     Toast.makeText(this, "Kullanıcı adı veya şifre hatalı", Toast.LENGTH_SHORT).show()
@@ -77,6 +84,7 @@ class WorkerLogin : AppCompatActivity() {
     }
     private fun startWorkerProfile() {
         val intent = Intent(this, WorkerProfile::class.java)
+        finish()
         startActivity(intent)
     }
     private fun startWorkerRegister() {

@@ -40,6 +40,7 @@
     <string name="title_activity_direction">Direction</string>
     <string name="add_bin">Atık Kutusu Ekle</string>
     <string name="delete_bin">Kutuyu Sil</string>
+    <string name="total_waste">Toplam Atık</string>
 
 
 </resources>

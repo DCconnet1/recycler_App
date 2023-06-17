@@ -9,8 +9,12 @@ data class User(
     val email: String? = "",
     val position: String? = "",
     val status: String? = "",
-    val useruid: String? = "",
+    val userUid: String? = "",
     val totalWaste: String? = "",
     val password:String? = "",
-
+    val address:String? = "",
+    val paperWeight:String? = "",
+    val plasticWeight:String? = "",
+    val glassWeight:String? = "",
+    val truckNo:String? = "",
 )

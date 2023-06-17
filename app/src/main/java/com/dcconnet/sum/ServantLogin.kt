@@ -96,6 +96,7 @@ class ServantLogin : AppCompatActivity() {
 
     private fun startServantRegister() {
         val intent = Intent(this, ServantRegister::class.java)
+        finish()
         startActivity(intent)
 
     }

@@ -43,6 +43,7 @@ class ServantRegister : AppCompatActivity() {
             if (it) {
                 Toast.makeText(this, "Hesap Başırı Bir Şekilde Oluşturuldu", Toast.LENGTH_SHORT)
                     .show()
+                SharedPrefUtil.getInstance(this).saveString(SharedPrefUtil.USER_EMAIL, user.email ?: "")
                 startServantLogin()
 
             }else{
@@ -52,6 +53,7 @@ class ServantRegister : AppCompatActivity() {
     }
     private fun startServantLogin() {
         val intent = Intent(this, ServantLogin::class.java)
+        finish()
         startActivity(intent)
     }
 }

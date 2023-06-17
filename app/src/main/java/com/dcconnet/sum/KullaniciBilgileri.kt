@@ -6,23 +6,24 @@ import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.dcconnet.sum.databinding.ActivityKullaniciBilgileriBinding
 import com.google.firebase.auth.FirebaseAuth
 
 import com.google.firebase.database.*
 
 class KullaniciBilgileri : AppCompatActivity() {
-    private lateinit var textViewLastName: TextView
-    private lateinit var textViewName: TextView
+
     private val database = FirebaseDatabase.getInstance().reference
     private var databaseBook: DatabaseReference? = database.child("users")
 
+    private lateinit var binding: ActivityKullaniciBilgileriBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_kullanici_bilgileri)
+        binding = ActivityKullaniciBilgileriBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        textViewName = findViewById(R.id.textViewName)
-        textViewLastName = findViewById(R.id.textViewLastName)
-
+        val localMail = SharedPrefUtil.getInstance(this).getString(SharedPrefUtil.USER_EMAIL, "")
 
         val dataListener1 = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -30,13 +31,12 @@ class KullaniciBilgileri : AppCompatActivity() {
                     dataSnapshot.children
                         .map { it.getValue(User::class.java) }
                         .firstOrNull {
-                            it?.email == UserSession.email
+                            it?.email == localMail
                         }?.let { user ->
-                            textViewName.text = user.firstname
+                            setUi(user)
                         }
                 }
             }
-
 
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(
@@ -49,6 +49,18 @@ class KullaniciBilgileri : AppCompatActivity() {
         databaseBook?.addValueEventListener(dataListener1)
 
 
+    }
+
+    private fun setUi(user: User) {
+        binding.userNameSurname.text = user.firstname + " " + user.lastname
+        binding.paperWeight.text = user.paperWeight
+        binding.plasticWeight.text = user.plasticWeight
+        binding.glassWeight.text = user.glassWeight
+        binding.totalWeight.text = user.totalWaste
+        binding.workerMailInput.text = user.email
+        binding.workerNumberInput.text = user.number
+        binding.workerLocation.text = user.address
+        binding.workerTruckNo.text = user.truckNo
     }
 }
 
