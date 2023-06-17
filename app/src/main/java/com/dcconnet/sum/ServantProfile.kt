@@ -17,9 +17,7 @@ class ServantProfile : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.getWork.setOnClickListener{
-            Toast.makeText(this,"Lütfen bağlantınızın güçlü olduğu yere geçin ve cihazın GPS özelliğini açınız.",
-                Toast.LENGTH_SHORT).show()
-          //  startTrashBinsActivity()
+            startTrashBinsActivity()
 
         }
         binding.mesajlar.setOnClickListener{
@@ -37,6 +35,7 @@ class ServantProfile : AppCompatActivity() {
 
 
     }
+
     private fun startMesajActivity(){
         val intent = Intent(this,Message::class.java)
         startActivity(intent)
@@ -50,9 +49,9 @@ class ServantProfile : AppCompatActivity() {
         startActivity(intent)
     }
 
-   /* private fun startTrashBinsActivity() {
+   private fun startTrashBinsActivity() {
         val intent = Intent(this, TrashBins::class.java)
         startActivity(intent)
-    }*/
+    }
 
 }
