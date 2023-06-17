@@ -25,6 +25,7 @@ class AuthenticationRepository() {
 
     fun createUser(user: User, onSuccessListener: (Boolean) -> Unit) {
         user.email?.let { mEmail -> databaseBook?.child(mEmail.lowercase()) }?.setValue(user)?.addOnCompleteListener {
+
             if (it.isSuccessful) {
                 onSuccessListener(true)
             } else {

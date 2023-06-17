@@ -12,8 +12,7 @@ interface DirectionsService {
         @Query("origin") origin: String?,
         @Query("destination") destination: String?,
         @Query("key") apiKey: String?
-    ):
-            Call<DirectionResponse>
+    ): Call<DirectionResponse>
 }
 
 

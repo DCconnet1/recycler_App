@@ -41,6 +41,8 @@
     <string name="add_bin">Atık Kutusu Ekle</string>
     <string name="delete_bin">Kutuyu Sil</string>
     <string name="total_waste">Toplam Atık</string>
+    <string name="birth_day">Doğum Tarihi</string>
+    <string name="adres">Adres</string>
 
 
 </resources>

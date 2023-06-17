@@ -56,7 +56,7 @@ class KullaniciBilgileri : AppCompatActivity() {
         binding.paperWeight.text = user.paperWeight
         binding.plasticWeight.text = user.plasticWeight
         binding.glassWeight.text = user.glassWeight
-        binding.totalWeight.text = user.totalWaste
+        binding.totalWeight.text = user.totalWaste + " kg"
         binding.workerMailInput.text = user.email
         binding.workerNumberInput.text = user.number
         binding.workerLocation.text = user.address

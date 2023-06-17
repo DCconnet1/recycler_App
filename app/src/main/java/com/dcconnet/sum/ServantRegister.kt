@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.dcconnet.sum.databinding.ActivityServantRegisterBinding
+import java.util.UUID
 
 class ServantRegister : AppCompatActivity() {
     private lateinit var binding: ActivityServantRegisterBinding
@@ -15,11 +16,15 @@ class ServantRegister : AppCompatActivity() {
         binding = ActivityServantRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.servantSave.setOnClickListener {
-            val sUsername = binding.servantMail.text.toString()
+            val sFirstName = binding.servantFirstName.text.toString()
+            val sLastName = binding.servantLastName.text.toString()
             val sPassword = binding.servantPassword.text.toString()
             val sMail = binding.servantMail.text.toString()
             val sNumber = binding.servantNumber.text.toString()
-            val user = User(username = sUsername, password = sPassword, email = sMail, number = sNumber)
+            val sAge = binding.servantAge.text.toString().toInt()
+            val sAdres = binding.servantAdress.text.toString()
+            val uuid = UUID.randomUUID().toString()
+            val user = User(username = sFirstName, password = sPassword, email = sMail, number = sNumber, userUid = uuid, lastname = sLastName, age = sAge, address = sAdres)
             checkIfUserExist(user)
 
         }
