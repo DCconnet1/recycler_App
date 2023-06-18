@@ -24,10 +24,9 @@ class TrashBins : AppCompatActivity(), OnMapReadyCallback {
 
     private val database = FirebaseDatabase.getInstance().reference
     private var databaseBook: DatabaseReference? = database.child("mapbin").child("Bölge1")
+    private val adapter: TrashBinAdapter by lazy { TrashBinAdapter() }
 
     private var listOfRecyclers = listOf<RecyclerBin?>()
-
-    private val adapter: TrashBinAdapter by lazy { TrashBinAdapter() }
     private var isMapReady = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
