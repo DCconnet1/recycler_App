@@ -12,9 +12,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import com.dcconnet.sum.data.RouteResult
 import com.dcconnet.sum.databinding.ActivityMapdenemeBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -44,6 +47,8 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationListener: LocationListener
     private lateinit var viewModel: LocationChangeViewModel
 
+    private lateinit var mapView: MapView
+
     private val database = FirebaseDatabase.getInstance().reference
     private var databaseBook: DatabaseReference? = database.child("mapbin").child("Bölge1")
 
@@ -58,10 +63,39 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
         val view = binding.root
         setContentView(view)
         setRoute()
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-        getRecyclerBin()
+
+        setMapView(savedInstanceState)
+        binding.button1.setOnClickListener {
+            getRecyclerBin()
+        }
+
+        setObservers()
+    }
+
+    private fun setMapView(savedInstanceState: Bundle?) {
+        mapView = binding.map
+        mapView.onCreate(savedInstanceState)
+        mapView.getMapAsync(this)
+    }
+
+
+    private fun setObservers() {
+        viewModel.bestRoute.observe(this) {
+            drawRoute(it)
+        }
+    }
+
+    private fun drawRoute(route: RouteResult?) {
+        route?.routes?.get(0)?.let {
+            val points =  route.routes.get(0)?.overview_polyline?.points
+            val latLong = PolylineUtils.decodePolyLines(points)
+            val polylineOptions = PolylineOptions()
+            polylineOptions.addAll(latLong)
+            polylineOptions.width(12f)
+            polylineOptions.color(Color.BLUE)
+            mMap.addPolyline(polylineOptions)
+
+        }
 
     }
 
@@ -213,32 +247,14 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(p0).title(adres))
     }
 
-    private fun startRoute(current1: LatLng, destination2: LatLng) {
-        try {
-            val current = LatLng(37.7749, -122.4194)  // San Francisco, CA
-            val destination = LatLng(34.0522, -118.2437)
-            val geoApiContext = GeoApiContext.Builder()
-                .apiKey("AIzaSyAB93QC17m-lfyB5KaYQVZWirGSSdcg6Og")
-                .build()
-
-            val result: DirectionsResult = DirectionsApi.newRequest(geoApiContext)
-                .mode(TravelMode.DRIVING)
-                .origin(current.latitude.toString() + "," + current.longitude.toString())
-                .destination(destination.latitude.toString() + "," + destination.longitude.toString())
-                .await()
-
-            val points = result.routes[0].overviewPolyline.decodePath()
-            val latLngPoints = points.map { convertLatLng(it) }
-
-            val polylineOptions = PolylineOptions()
-            polylineOptions.addAll(latLngPoints)
-            polylineOptions.width(12f)
-            polylineOptions.color(Color.BLUE)
-            mMap.addPolyline(polylineOptions)
-        } catch (e: Exception) {
-            println("")
-        }
-
+    private fun startRoute(current: LatLng, destination: LatLng) {
+        val currentLocation = current.latitude.toString() + "," + current.longitude.toString()
+        val destinationLocation =
+            destination.latitude.toString() + "," + destination.longitude.toString()
+        viewModel.getBestRoute(
+            currentLocation = currentLocation,
+            destinationLocation = destinationLocation
+        )
     }
 
     private fun convertLatLng(latLng: com.google.maps.model.LatLng): LatLng {
@@ -267,12 +283,24 @@ class Mapdeneme : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    private fun getURL(from: LatLng, to: LatLng): String {
-        val origin = "origin=" + from.latitude + "," + from.longitude
-        val dest = "destination=" + to.latitude + "," + to.longitude
-        val sensor = "sensor=false"
-        val params = "$origin&$dest&$sensor"
-        return "https://maps.googleapis.com/maps/api/directions/json?$params"
+    override fun onResume() {
+        super.onResume()
+        mapView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapView.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mapView.onDestroy()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mapView.onLowMemory()
     }
 }
 

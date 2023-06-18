@@ -49,9 +49,7 @@ class WorkerProfile : AppCompatActivity() {
 
 
         binding.getWork.setOnClickListener{
-            Toast.makeText(this,"Lütfen bağlantınızın güçlü olduğu yere geçin ve cihazın GPS özelliğini açınız.",
-                Toast.LENGTH_SHORT).show()
-            //  startTrashBinsActivity()
+              startTrashBinsActivity()
 
         }
         binding.mesajlar.setOnClickListener{
@@ -86,9 +84,9 @@ class WorkerProfile : AppCompatActivity() {
         startActivity(intent)
     }
 
-    /* private fun startTrashBinsActivity() {
-         val intent = Intent(this, TrashBins::class.java)
+     private fun startTrashBinsActivity() {
+         val intent = Intent(this, Mapdeneme::class.java)
          startActivity(intent)
-     }*/
+     }
 
 }

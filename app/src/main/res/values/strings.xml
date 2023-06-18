@@ -51,6 +51,7 @@
     <string name="get_work1">İşe Başla</string>
     <string name="position">Pozisyon</string>
     <string name="truck_no">Plaka</string>
+    <string name="show_mission">Görev Göster</string>
 
 
 </resources>
